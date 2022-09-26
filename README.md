@@ -32,6 +32,12 @@ _a.k.a Not mandatory_
 - Commented code
 - Nice design (you can get inspiration from Dribbble, Behance, etc)
 
+### Other notes
+
+As usual, you have the freedom to organize yourselves however you see fit; you have the freedom to choose (or not) any frameworks you want, any design you want.
+The second project will last for 2 sessions, and is **mandatory**.
+After finishing it, you'll present it 😁
+
 ## Note regarding env
 
 You'll notice a `.env.sample` file in the root of the repository. This is a **common** way to handle the initialization of a env file.
