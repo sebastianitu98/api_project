@@ -8,7 +8,7 @@ Includes:
 
 `dotenv` - [GitHub](https://github.com/motdotla/dotenv) for any secrets and sensitive data
 
-`eslint` config with `air-bnb` [ESLint AirBNB](https://github.com/airbnb/javascript) [ESLint](https://eslint.org/) for linting
+`eslint` [ESLint](https://eslint.org/) config with `air-bnb` [ESLint AirBNB](https://github.com/airbnb/javascript) for linting
 
 `prettier` [GitHub](https://prettier.io/) for formatting
 
@@ -31,3 +31,17 @@ _a.k.a Not mandatory_
 
 - Commented code
 - Nice design (you can get inspiration from Dribbble, Behance, etc)
+
+## Note regarding env
+
+You'll notice a `.env.sample` file in the root of the repository. This is a **common** way to handle the initialization of a env file.
+
+You'll just copy and paste that file in your root directory, and rename the new file `.env`, so you should have something like:
+
+```
+js_project_base
+|   src
+|   .env.sample
+|   .env <-- this is your new file
+|   (...)
+```
