@@ -1,11 +1,16 @@
-export const createElement = (data) => {
+import { localStorageService } from './services';
+
+const cocktailsSection = document.querySelector('#cocktails');
+var favorites = localStorageService.getData();
+
+export const createElement = ( data , canAddToFavorites ) => {
 
     const divEl = document.createElement("div");
     divEl.classList.add('border-2', 'border-cyan-600', 'rounded-lg', 'mx-5', 'max-w-sm', 'justify-center')
 
     //create element for name
     const name = document.createElement("h2");
-    name.classList.add('font-sans','text-center', 'itens-center', 'mx-auto', 'font-bold', 'text-purple-200', 'my-2')
+    name.classList.add('font-sans','text-center', 'items-center', 'mx-auto', 'font-bold', 'text-purple-200', 'my-2')
     name.textContent = data.strDrink;
 
     //create element for image
@@ -14,8 +19,8 @@ export const createElement = (data) => {
     poster.src = data.strDrinkThumb;
 
     //create element for id
-    const movieIdEl = document.createElement("span");
-    movieIdEl.textContent = data.idDrink;
+    const idEl = document.createElement("span");
+    idEl.textContent = data.idDrink;
 
     //create element for ingredients
     const ingredientsEl = document.createElement('div');
@@ -36,6 +41,11 @@ export const createElement = (data) => {
     const instructions = document.createElement("p");
     instructions.textContent = data.strInstructions;
 
+    //create favorites button
+    const favBtn = document.createElement('button')
+    favBtn.classList.add('border-2', 'border-cyan-600')
+        
+    canAddToFavorites? favBtn.textContent = "Add to favorites": favBtn.textContent ="Remove from favorites";
     
     //creating the entire cocktail-element
     divEl.appendChild(name);
@@ -56,8 +66,29 @@ export const createElement = (data) => {
     }
     divEl.appendChild(ingredientsEl);
     divEl.appendChild(instructions);
+    divEl.appendChild(favBtn);
+    
+    //add functionality for addToFavorites button
+        
+    favBtn.addEventListener('click', () => {
+        if (canAddToFavorites === true) {
+            favorites.push(data);
+            localStorageService.setData(favorites);
+            canAddToFavorites = false;
+            favBtn.textContent ="Remove from favorites";
+        } else {
+            const filteredFavorites = favorites.filter( (el) =>  el.idDrink !== data.idDrink);
+            localStorageService.setData(filteredFavorites);
+            favorites = localStorageService.getData();          
+            cocktailsSection.innerHTML = "";
+            favorites.map(element => {
+                const drinkEl = createElement( element , false );
+                cocktailsSection.appendChild(drinkEl);
+            });
+        }
+    })
 
     //returning the entire object
     return divEl;
+    
 }
-

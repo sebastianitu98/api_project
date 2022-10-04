@@ -1,8 +1,12 @@
 import { createElement } from './createElement';
-import { getData } from './services';
+import { getData, localStorageService } from './services';
 
 export const results = document.querySelector("#cocktails");
 export const inputQuery = document.querySelector('#selectQuery');
+
+
+//initialize data from localStorage
+localStorageService.initializeData();
 
 //added event listener on input
 inputQuery.addEventListener('change', async (e) => {
@@ -14,8 +18,8 @@ inputQuery.addEventListener('change', async (e) => {
 
     //manipulated data
     const drinks = response.drinks;
-    drinks.map(drink => {
-        const cocktail = createElement(drink);
+    drinks.map( drink => {
+        const cocktail = createElement( drink , true );
         results.appendChild(cocktail);
     })
 })
