@@ -5,3 +5,18 @@
 *{
     background-color: rgb(70, 70, 70);
 }
+
+.my-0_25{
+    margin: 0.1rem;
+}
+
+.text-xxs{
+    font-size: xx-small;
+}
+
+
+@media only screen and (max-width: 920px){
+    #cocktails{
+        grid-template-columns: 2;
+    }
+}

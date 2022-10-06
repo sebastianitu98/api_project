@@ -24,5 +24,5 @@ inputQuery.addEventListener('change', async (e) => {
     })
 })
 
-results.classList.add('grid','grid-cols-4');
+results.classList.add('grid', 'grid-cols-3');
 

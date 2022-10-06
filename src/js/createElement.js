@@ -6,7 +6,7 @@ var favorites = localStorageService.getData();
 export const createElement = ( data , canAddToFavorites ) => {
 
     const divEl = document.createElement("div");
-    divEl.classList.add('border-2', 'border-cyan-600', 'rounded-lg', 'mx-5', 'max-w-sm', 'justify-center')
+    divEl.classList.add('border-2', 'border-cyan-600', 'rounded-2xl', 'mx-5', 'relative', 'max-w-xs', 'text-center', 'my-5', 'p-1', 'card')
 
     //create element for name
     const name = document.createElement("h2");
@@ -15,7 +15,7 @@ export const createElement = ( data , canAddToFavorites ) => {
 
     //create element for image
     const poster = document.createElement("img");
-    poster.classList.add('w-10/12', 'my-3', 'mx-auto', 'items-center','justify-center')
+    poster.classList.add('min-w-xs', 'my-3', 'mx-auto', 'pl-3', 'pr-3', 'w-60', 'h-auto')
     poster.src = data.strDrinkThumb;
 
     //create element for id
@@ -24,7 +24,7 @@ export const createElement = ( data , canAddToFavorites ) => {
 
     //create element for ingredients
     const ingredientsEl = document.createElement('div');
-    ingredientsEl.classList.add('grid', 'grid-cols-4', 'max-w-full', 'items-center', 'w-10/12', 'grid-flow-row');
+    ingredientsEl.classList.add('flex', 'flex-wrap', 'mx-auto', 'items-center');
     const getIngredients = (data) => {
         let ingredients = [];
         for(let i=1; i<=15; i++){
@@ -37,13 +37,21 @@ export const createElement = ( data , canAddToFavorites ) => {
         return ingredients;
     }
     
+    //create element to wrap the instructions so we won't have 100-line instructions list
+    const instructionsWrapper = document.createElement('div');
+
     //create element for instructions
     const instructions = document.createElement("p");
-    instructions.textContent = data.strInstructions;
+    const instructionsWord = 'Instructions:';
+    instructions.textContent = instructionsWord + " " + data.strInstructions;
+    // instructions.classList.add('text-purple-200', 'pb-9')
+
+    instructionsWrapper.appendChild(instructions);
+    instructionsWrapper.classList.add('text-purple-200', 'max-h-32', 'overflow-auto', 'mb-9')
 
     //create favorites button
     const favBtn = document.createElement('button')
-    favBtn.classList.add('border-2', 'border-cyan-600')
+    favBtn.classList.add('border-2', 'border-cyan-600', 'absolute', 'bottom-2', 'inset-x-1', 'rounded-full', 'text-purple-200')
         
     canAddToFavorites? favBtn.textContent = "Add to favorites": favBtn.textContent ="Remove from favorites";
     
@@ -54,7 +62,7 @@ export const createElement = ( data , canAddToFavorites ) => {
     //looping ingredients to get each ingredient and quantity for each cocktail
     for (let i=0 ; i < getIngredients(data).length; i++) {
         const ingredientEl = document.createElement('h6');
-        ingredientEl.classList.add('my-1', 'mx-6', 'border-cyan-600', 'border-2', 'w-max', 'whitespace-nowrap', 'text-justify')
+        ingredientEl.classList.add('text-pink-50', 'text-xxs', 'box-border', 'my-0_25', 'mx-auto', 'border-cyan-600', 'border', 'p-1', 'rounded-lg', 'w-max','text-justify', 'inline-block')
 
         const ingredients = getIngredients(data);
         if(ingredients[i][1] != null){
@@ -65,7 +73,7 @@ export const createElement = ( data , canAddToFavorites ) => {
         ingredientsEl.appendChild(ingredientEl);
     }
     divEl.appendChild(ingredientsEl);
-    divEl.appendChild(instructions);
+    divEl.appendChild(instructionsWrapper);
     divEl.appendChild(favBtn);
     
     //add functionality for addToFavorites button
