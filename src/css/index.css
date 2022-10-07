@@ -36,6 +36,12 @@
 
 }
 
+@media only screen and (max-width: 740px){
+    #cocktails{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
 @media only screen and (max-width: 920px){
     #cocktails{
         grid-template-columns: repeat(2, minmax(0, 1fr));
