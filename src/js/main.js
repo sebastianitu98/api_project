@@ -25,4 +25,9 @@ inputQuery.addEventListener('change', async (e) => {
 })
 
 results.classList.add('grid', 'grid-cols-3');
+const hamburger = document.querySelector('#hamburger-btn');
+const navigation = document.querySelector('.navigation');
 
+hamburger.addEventListener('click', () => {
+    navigation.classList.toggle('show');
+})

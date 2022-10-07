@@ -10,18 +10,40 @@
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-  <div class="title text-center font-sans text-4xl text-cyan-600 my-4 mx-auto">COCKTAILS</div>
+  <div class="relative header">
+    <div class="title font-sans text-2xl text-cyan-600 py-4 mx-auto logo h-16 block text-center">COCKTAILS</div>
+
+    <button id="hamburger-btn" class="hidden absolute top-0 right-0 flex-column justify-between">
+      <img src="./images/hamburgerheader-810x810.jpg" id="hamburger-btn" class="w-16 h-auto mx-auto my-auto">
+      <span class="bar h-2 w-full-100 bg-slate-700 p-0 m-0"></span>
+      <span class="bar h-2 w-full-100 bg-slate-700 p-0 m-0"></span>
+      <span class="bar h-2 w-full-100 bg-slate-700 p-0 m-0"></span>
+      <span class="bar h-2 w-full-100 bg-slate-700 p-0 m-0"></span>
+    </button>
+
+    <nav class="container mx-auto navigation text-center w-9/12">
+      <ul class="grid grid-cols-4 w-12/12 items-center" id="navigation-list">
+        <li>
+          <button class="nav-item text-center font-sans text-2xl text-cyan-600 mx-4" id="byName">BY NAME</button>
+        </li>
+        <li>
+          <button class="nav-item text-center font-sans text-2xl text-cyan-600 mx-4" id="byFirstLetter">BY FIRST LETTER</button>
+        </li>
+        <li>
+          <button class="nav-item text-center font-sans text-2xl text-cyan-600 mx-4" id="random">RANDOM</button>
+        </li>
+        <li>
+          <button class="nav-item text-center font-sans text-2xl text-cyan-600 mx-4" id="favorites">FAVORITES</button>
+        </li>
+      </ul>
+    </nav> 
+  </div>
+
   <div class="entire-body max-w-4xl text-center mx-auto">
-    <nav class="container mx-auto flex justify-between place-content-center">
-
-      <button class="text-center font-sans text-2xl text-cyan-600 mx-4" id="byName">BY NAME</button>
-      <button class="text-center font-sans text-2xl text-cyan-600 mx-4" id="byFirstLetter">BY FIRST LETTER</button>
-      <button class="text-center font-sans text-2xl text-cyan-600 mx-4" id="random">RANDOM</button>
-      <button class="text-center font-sans text-2xl text-cyan-600 mx-4" id="favorites">FAVORITES</a>
-
-    </nav>
-    <input type="text" id="selectQuery" placeholder="Type here" class="text-center text-cyan-600">
+    <input type="text" id="selectQuery" placeholder="Search" class="text-center text-cyan-600">
     <section id="cocktails"></section>
-   </div>
+  </div>
+
   </body>
+
 </html>

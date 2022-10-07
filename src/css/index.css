@@ -14,9 +14,75 @@
     font-size: xx-small;
 }
 
+.nav-item:hover{
+    color:rgb(15, 184, 170);
+}
+
+.navigation ul li:hover{
+    background-color: #555;
+}
+
+@media only screen and (max-width: 550px){
+    #cocktails{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .logo {
+        margin-left: 2rem;
+    }
+
+}
 
 @media only screen and (max-width: 920px){
     #cocktails{
-        grid-template-columns: 2;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+@media only screen and (max-width: 1100px){
+
+    .navigation{
+        display: none;
+        width: 100%;
+    }
+
+    #navigation-list{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bar{
+        display: none;
+    }
+
+    .navigation.show{
+        display: flex;
+    }
+
+    #hamburger-btn{
+        display: block;
+    }
+
+    .navigation ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .title{
+        display: inline-block;
+
+    }
+
+    .header{
+        flex-direction: column;
+    }
+
+    .logo {
+        margin-left: 2rem;
+    }
+}
+
