@@ -2,7 +2,7 @@
   "name": "js_project_base",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
